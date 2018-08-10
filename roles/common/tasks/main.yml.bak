@@ -1,0 +1,25 @@
+---
+#- name: Add stable RedHat orCentOS repository
+#  yum_repository:
+#    name: docker-ce
+#    description: docker repo for CentOS
+#    baseurl: https://download.docker.com/linux/centos/
+#    gpgcheck: yes
+#    gpgkey: https://download.docker.com/linux/centos/gpg
+
+- name: Install device-mapper-persistent-data and lvm2 are required by the devicemapper storage driver
+  yum:
+    name: "{{add_packages}}"
+    state: "{{add_packages_state}}"
+
+- name: Add stable RedHat orCentOS repository
+  get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+    mode: 0622
+
+- name: install docker
+  yum:
+    name: docker-ce
+    state: "{{ docker_state }}"
+    update_cache:  yes

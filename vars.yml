@@ -1,0 +1,10 @@
+# desired state of Docker
+docker_state: latest
+
+# install additional packages
+add_packages_state: latest
+
+# additional packages
+add_packages:
+  - device-mapper-persistent-data
+  - lvm2
