@@ -9,7 +9,7 @@
 
 - name: Install device-mapper-persistent-data and lvm2 are required by the devicemapper storage driver
   yum:
-    name: "{{add_packages}}"
+    name: "{{add_packages_yum}}"
     state: "{{add_packages_state}}"
 
 - name: Add stable RedHat orCentOS repository

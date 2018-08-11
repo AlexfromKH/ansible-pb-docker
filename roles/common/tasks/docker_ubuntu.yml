@@ -1,0 +1,20 @@
+---
+- name: Add an Apt signing key, uses whichever key is at the URL
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Run "apt-get update"
+  apt:
+    update_cache: yes
+
+- name: Install additional packages for ubuntu
+  apt:
+    name: "{{add_packages_ubuntu}}"
+    state: "{{add_packages_state}}"
+
+- name: Add stable Ubuntu repository in system
+  apt_repository:
+    repo: deb [arch=x86_64] https://download.docker.com/linux/ubuntu/ {{ansible_distribution_release}} stable
+    state: present
+    update_cache: yes

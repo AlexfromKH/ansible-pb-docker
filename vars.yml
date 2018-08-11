@@ -1,3 +1,24 @@
+---
+# uninstall old versions
+rm_old_docker: true
+
+rm_packages_yum:
+  - docker
+  - docker-client
+  - docker-client-latest
+  - docker-common
+  - docker-latest
+  - docker-latest-logrotate
+  - docker-logrotate
+  - docker-selinux
+  - docker-engine-selinux
+  - docker-engine
+
+rm_packages_apt:
+  - docker
+  - docker-engine
+  - docker.io
+
 # desired state of Docker
 docker_state: latest
 
@@ -5,6 +26,10 @@ docker_state: latest
 add_packages_state: latest
 
 # additional packages
-add_packages:
+add_packages_yum:
   - device-mapper-persistent-data
   - lvm2
+
+add_packages_ubuntu:
+  - ca-certificates
+...

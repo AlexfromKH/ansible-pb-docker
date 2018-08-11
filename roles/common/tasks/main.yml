@@ -8,7 +8,15 @@
   when: ansible_os_family == "Ubuntu" or ansible_os_family == "Debian"
 
 - name: install docker
-  yum:
+  package:
     name: docker-ce
     state: "{{ docker_state }}"
     update_cache:  yes
+  notify:
+    - start docker
+
+# start docker
+- name: Start docker, if not running
+  service:
+    name: docker
+    state: started
