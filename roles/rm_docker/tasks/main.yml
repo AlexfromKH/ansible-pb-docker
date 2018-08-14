@@ -1,0 +1,8 @@
+---
+# Main installation File
+#
+- import_tasks: rm_docker_centos.yml
+  when: ansible_os_family == "RedHat"
+
+- import_tasks: rm_docker_ubuntu.yml
+  when: ansible_os_family == "Ubuntu" or ansible_os_family == "Debian"

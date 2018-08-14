@@ -9,7 +9,7 @@
 
 - name: Install device-mapper-persistent-data and lvm2 are required by the devicemapper storage driver
   yum:
-    name: "{{add_packages}}"
+    name: "{{docker_packages_yum}}"
     state: "{{add_packages_state}}"
 
 - name: Add stable RedHat orCentOS repository
@@ -18,8 +18,3 @@
     dest: /etc/yum.repos.d/docker-ce.repo
     mode: 0622
 
-- name: install docker
-  yum:
-    name: docker-ce
-    state: "{{ docker_state }}"
-    update_cache:  yes

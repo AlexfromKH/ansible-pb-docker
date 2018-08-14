@@ -1,0 +1,11 @@
+---
+- name: remove additional packages for ubuntu
+  apt:
+    name: "{{docker_packages_apt}}"
+    state: absent
+
+- name: remove docker on ubuntu
+  apt:
+    name: "{{rm_packages_apt}}"
+    state: absent
+    update_cache: yes

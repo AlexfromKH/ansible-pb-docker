@@ -1,0 +1,11 @@
+---
+# remove docker and all packages
+- name: remove docker additional packages
+  yum:
+    name: "{{docker_packages_yum}}"
+    state: absent
+
+- name: remove docker
+  yum:
+    name: "{{rm_packages_yum}}"
+    state: absent

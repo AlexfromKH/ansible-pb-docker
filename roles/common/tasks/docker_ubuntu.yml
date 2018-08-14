@@ -10,7 +10,7 @@
 
 - name: Install additional packages for ubuntu
   apt:
-    name: "{{add_packages_ubuntu}}"
+    name: "{{docker_packages_apt}}"
     state: "{{add_packages_state}}"
 
 - name: Add stable Ubuntu repository in system

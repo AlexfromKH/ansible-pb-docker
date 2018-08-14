@@ -2,7 +2,10 @@
 - hosts: all
   gather_facts: yes
   become: yes
+#  become_method: su
+#  rimote_user: ansible
   vars_files:
      - vars.yml
   roles:
-     - common
+     - { role: rm_docker, when: rm_old_docker }
+     - { role: common, when: install_docker }

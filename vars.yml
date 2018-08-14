@@ -1,4 +1,7 @@
 ---
+# install Docker
+install_docker: true
+
 # uninstall old versions
 rm_old_docker: true
 
@@ -26,10 +29,10 @@ docker_state: latest
 add_packages_state: latest
 
 # additional packages
-add_packages_yum:
+docker_packages_yum:
   - device-mapper-persistent-data
   - lvm2
 
-add_packages_ubuntu:
+docker_packages_apt:
   - ca-certificates
 ...
