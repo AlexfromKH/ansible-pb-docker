@@ -6,3 +6,6 @@
 
 - import_tasks: rm_docker_ubuntu.yml
   when: ansible_os_family == "Ubuntu" or ansible_os_family == "Debian"
+
+- import_tasks: rm_docker_lib.yml
+  when: rm_docker_lib

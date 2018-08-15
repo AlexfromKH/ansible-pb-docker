@@ -5,6 +5,14 @@ install_docker: true
 # uninstall old versions
 rm_old_docker: true
 
+# delete all images, containers, and volumes
+rm_docker_lib: false
+
+# Users to add in docker group
+docker_users: 
+  - ansible
+  - alexst
+
 rm_packages_yum:
   - docker
   - docker-client

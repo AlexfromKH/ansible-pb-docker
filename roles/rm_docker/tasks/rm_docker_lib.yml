@@ -1,0 +1,5 @@
+# delete all images, containers, and volumes (because these are not automatically removed from your host)
+- file:
+    path: /var/lib/docker
+    state: absent
+    recurse: yes

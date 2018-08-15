@@ -21,3 +21,20 @@
     name: docker
     state: started
     enabled: yes
+
+# Manage Docker as a non-root user
+#
+# Create the docker group
+- name: Ensure group "docker" exists
+  group:
+    name: docker
+    state: present
+
+# Add your user to the docker group
+- name: Add the users to the docker group
+  user:
+    name: "{{ item }}"
+    group: docker
+    state: present
+  with_items: "{{ docker_users }}"
+...
